@@ -164,7 +164,11 @@ mkdir -p /home/hope/Documents/pdf
 ```
 ### tar and how to extract (-xvf) archived files and create (-cvf) archived files
 ```markdown
-tar is used to create, maintain, modify, and extract files that are in tar format
+tar -xvf archive.tar documents/work/budget.doc
+    Extract only the file documents/work/budget.doc from the archive archive.tar.
+    
+To combine multiple files and/or directories into a single file, use the following command:
+    tar -cvf file.tar inputfile1 inputfile2
 ```
 ###### -xvf
 ```markdown
