@@ -122,7 +122,7 @@ Prints newline, word, and byte counts for each file
 ```markdown
 -l
   prints the newline count
-
+```
 ### rm and ```its -r option
 ```markdown
 Removes the file, not directories
@@ -224,9 +224,19 @@ echo$NAME
 ```
 ### Different ways to set and see contents of shell variables
 ### '' vs ""
+```markdown
+Single quotes will literally echo what you have between them
+double quotes will evaluate variables between them and output the value of the variable
+```
 ### Curcly braces in variables
+```markdown
+Braces are used to unambiguously identify variables
+```
 ### echo with unset variable?
-
+```markdown
+unset var
+echo $var
+```
 # Wildcards
 
 ### *, ?, and the many ways to use []
@@ -235,16 +245,78 @@ echo$NAME
 # Basic Bash Scripting
 
 ### Command line arguments
+```markdown
+$0
+ The command or script
+$1 to $9
+ Arguments 1-9
+$#
+ Total number of arguments
+$*
+ Represents all arguments
+$$
+ PID of a running script
+```
 ### Descripe what script does
+```markdown
+A command script is simply a file, which contains a set of normal linux commands that the command shell will perform automatically in the given order
+```
 ### Write a simple script
+```markdown
+#! /bin/bash
+echo "Hey what's Your First Name?"
+read a
+echo "welcome Mr./Mrs. $a, would you like to tell us, Your Last Name"
+read b
+echo "Thanks Mr./Mrs. $a $b for telling us your name"
+echo "*******************"
+echo "Mr./Mrs. $b, it's time to say you good bye"
+```
 ### How while-loops are structured
+```markdown
+INPUT_STRING=hello
+while [ "$INPUT_STRING" != "bye" ]
+do
+  echo "Please type something in (bye to quit)"
+  read INPUT_STRING
+  echo "You typed: $INPUT_STRING"
+done
+```
 
 # I/O Manipulation/Redirection
 
 ### Using the echo command
 ### <, >, >>, 2>, 2>>, and |
+```markdown
+>
+ Standard output, overwrite
+<
+ Standard input, overwrite
+>>
+ Standard output, append
+2>
+ Standard error, overwrite
+2>>
+ Standard error, append
+1|2
+ Feeds output from left program to the program on the right
+
+```
 
 # Misc
 
 ### Exit Status, $?
+```markdown
+To view the exit status use"
+echo $?
+
+To change exit code, as the end of the if or else statement put:
+exit#
+```
 ### Control Signals (Ctrl-C, Ctrl-D)
+```markdown
+Ctrl-C
+ Interrupt/stop what you are doing. Terminates application
+Ctrl-D
+ Exits terminal 
+```
