@@ -209,7 +209,20 @@ touch file.txt ////// Creates file.txt
 ```
 ### file
 ```markdown
-Determines a files type
+file *
+
+    Below is an example of what may appear when running file with a wildcard for all files:
+
+    shutdown.htm: HTML document text
+    si.htm: HTML document text
+    side0.gif: GIF image data, version 89a, 107 x 18
+    robots.txt: ASCII text, with CRLF line terminators
+    routehlp.htm: HTML document text
+    rss: setgid directory
+
+file *.txt
+
+        running the file command listing     any file ending with .txt:
 ```
 ### find e
 ```markdown
@@ -240,6 +253,67 @@ echo $var
 # Wildcards
 
 ### *, ?, and the many ways to use []
+and ?:
+```markdown
+Wldcard allows you to specify more than one file at the same time. 
+The '*' matches any number of characters. For example, if   you want to execute 
+a command on all files in the current directory, you would specify '*' as the filename. 
+If you want to be more selective and match only files which end in "ing", you 
+would use "*ing". Note that the '*' can even match zero characters, so "*ing" would match 
+"ing" as well as "sing".
+
+The other wildcard, '?', is not used very often, but it can be useful. It matches exactly 
+one character. For example, if you want to match "sport", but not "spat", you would use 
+"sp??t". The first '?' matches the 'a' in "spat", but the second '?' can't match anything, 
+so "spat" fails.
+```
+[] :
+
+Square Brackets Wildcard
+```markdown
+The third type of wildcard in shell commands is a pair of square brackets, which can represent 
+any of the characters enclosed in the brackets. Thus, for example, the following would provide 
+information about all objects in the current directory that have an x, y and/or z in them:
+
+    file *[xyz]*
+
+And the following would list all files that had an extension that begins with x, y or z:
+
+    ls *.[xyz]*
+
+The same results can be achieved by merely using the star and question mark wildcards. However,
+it is clearly more efficient to use the bracket wildcard.
+
+When a hyphen is used between two characters in the square brackets wildcard, it indicates a 
+range inclusive of those two characters. For example, the following would provide information 
+about all of the objects in the current directory that begin with any letter from a through f:
+
+    file [a-f]*
+
+And the following would provide information about every object in the current directory whose 
+name includes at least one numeral:
+
+    file *[0-9]*
+
+The use of the square brackets to indicate a range can be combined with its use to indicate a 
+list. Thus, for example, the following would provide information about all filesystem objects
+whose names begin with any letter from a through c or begin with s or t:
+
+    file [a-cst]*
+
+Likewise, multiple sets of ranges can be specified. Thus, for instance, the following would
+return information about all objects whose names begin with the first three or the final three 
+lower case letters of the alphabet:
+
+    file [a-cx-z]*
+
+Sometimes it can be useful to have a succession of square bracket wildcards. For example, 
+the following would display all filenames in the current directory that consist of jones
+followed by a three-digit number:
+
+    ls jones[0-9][0-9][0-9]
+```
+
 ### Be able to tell what a specific wildcar will match given the files/directories in the current working directory
 
 # Basic Bash Scripting
